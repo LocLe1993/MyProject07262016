@@ -1,0 +1,13 @@
+username:
+  max: 32
+name:
+  max: 60
+kana:
+  max: 60
+post_code:
+  max: 7
+  min: 7
+address1:
+  max: 60
+address2:
+  max: 40
