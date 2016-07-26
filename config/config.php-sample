@@ -1,0 +1,20 @@
+<?php
+    define('DB_NAME',   'DB_NAME');
+    define('DB_USER',   'DB_USER');
+    define('DB_PASS',   'DB_PASS');
+    define('DB_HOST',   'DB_HOST');
+
+    define('DEBUG_MODE', true);
+    define('DEV_MODE',   false);
+    define('LOCALE', 'ja');
+    define('DEFAULT_ITEM_PER_PAGE', 10);
+    define('MAX_ITEMS', 1000);
+    define('PDF_DEFAULT_OPTIONS', serialize(array()));
+
+    define ( "ASSET_VERSION", "v1" );
+    define ( "ASSET_CSS_VERSION", "v1" );
+    define ( "ASSET_CSS_BASE_PATH", "/css" );
+    define ( "ASSET_IMG_VERSION", "v1" );
+    define ( "ASSET_IMG_BASE_PATH", "/img" );
+    define ( "ASSET_JS_VERSION", "v1" );
+    define ( "ASSET_JS_BASE_PATH", "/js" );

@@ -1,0 +1,27 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Login{% endblock %}
+
+{% block body %}
+	<div class="page-header">
+      	<h1>LOGIN</h1>
+    </div>
+	<form id="login" action="{{ path('index') }}login_check" method="post">
+        <table>
+        	<tr><td>{{ error }}</td></tr>
+            <tr><td><input type="text" name="username" value="{{ last_username }}" placeholder="Username" class="top"/></td></tr>
+            <tr><td><input type="password" name="password" value="" placeholder="Password" class="bottom"/></td></tr>
+            <tr><td>
+                    <input type="checkbox" name="remember" id="remember"/>
+                    <label for="remember">Stay logged in</label>
+                </td></tr>
+            <tr><td><input type="submit" value="Login" class="btn btn-primary btn-lg"></td></tr>
+        </table>
+    </form>
+{% endblock %}
+
+{% block inline_script %}
+{% endblock %}
+
+{% block inline_style %}
+{% endblock %}
