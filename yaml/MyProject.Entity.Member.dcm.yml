@@ -1,0 +1,47 @@
+MyProject\Entity\Member:
+  type: entity
+  table: members
+  repositoryClass: MyProject\Repository\MemberRepository
+  lifecycleCallbacks:
+    prePersist: [ doPrePersist ]
+    preUpdate: [ doPreUpdate ]
+  indexes:
+    idx_members_user_id:
+      columns: [ user_id ]
+    idx_members_del_flg:
+      columns: [ del_flg ]
+  id:
+    id:
+      type: integer
+      generator:
+        strategy: AUTO
+  fields:
+    user_id:
+      type: string
+    password:
+      type: string
+    email:
+      type: string
+      nullable: true
+    name:
+      type: string
+    del_flg:
+      type: boolean
+      options:
+        default: false
+    updated_by:
+      type: integer
+    update_at:
+      type: datetime
+      columnDefinition: timestamp
+    created_by:
+      type: integer
+    create_at:
+      type: datetime
+      columnDefinition: timestamp
+  manyToOne:
+    Authority:
+      targetEntity: MyProject\Entity\Code
+      joinColumn:
+        name: level
+        referencedColumnName: id

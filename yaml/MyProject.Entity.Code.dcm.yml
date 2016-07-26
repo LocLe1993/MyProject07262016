@@ -1,0 +1,47 @@
+MyProject\Entity\Code:
+  type: entity
+  table: codes
+  repositoryClass: MyProject\Repository\CodeRepository
+  lifecycleCallbacks:
+    prePersist: [ doPrePersist ]
+    preUpdate: [ doPreUpdate ]
+  indexes:
+    idx_codes_no:
+      columns: [ no ]
+    idx_codes_rank:
+      columns: [ rank ]
+    idx_codes_del_flg:
+      columns: [ del_flg ]
+  id:
+    id:
+      type: integer
+      generator:
+        strategy: AUTO
+  fields:
+    kind:
+      type: integer
+    no:
+      type: string
+    name:
+      type: string
+      columnDefinition: text not null
+    memo:
+      type: string
+      columnDefinition: text
+    rank:
+      type: integer
+    del_flg:
+      type: boolean
+      options:
+        default: false
+    updated_by:
+      type: integer
+    update_at:
+      type: datetime
+      columnDefinition: timestamp
+    created_by:
+      type: integer
+    create_at:
+      type: datetime
+      columnDefinition: timestamp
+
