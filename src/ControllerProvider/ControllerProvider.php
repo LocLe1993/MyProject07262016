@@ -13,6 +13,8 @@ class ControllerProvider implements ControllerProviderInterface
         $controllers = $app['controllers_factory'];
 
         $controllers->get('/', 'MyProject\Controller\HomeController::index')->bind('index');
+        
+        $controllers->get('/blog', 'MyProject\Controller\BlogController::index')->bind('blog');
 
         /* Login */
         $controllers->get('/login', 'MyProject\Controller\AdminController::login')->bind('login');
