@@ -3,9 +3,9 @@
 namespace MyProject\Entity;
 
 /**
- * Code
+ * Blog
  */
-class Code
+class Blog
 {
     /**
      * @var integer
@@ -13,29 +13,19 @@ class Code
     private $id;
 
     /**
-     * @var integer
-     */
-    private $kind;
-
-    /**
-     * @var string
-     */
-    private $no;
-
-    /**
      * @var string
      */
     private $name;
 
     /**
-     * @var string
+     * @var integer
      */
-    private $memo;
+    private $blog_type_id;
 
     /**
      * @var integer
      */
-    private $rank;
+    private $field_id;
 
     /**
      * @var boolean
@@ -74,59 +64,11 @@ class Code
     }
 
     /**
-     * Set kind
-     *
-     * @param integer $kind
-     *
-     * @return Code
-     */
-    public function setKind($kind)
-    {
-        $this->kind = $kind;
-
-        return $this;
-    }
-
-    /**
-     * Get kind
-     *
-     * @return integer
-     */
-    public function getKind()
-    {
-        return $this->kind;
-    }
-
-    /**
-     * Set no
-     *
-     * @param string $no
-     *
-     * @return Code
-     */
-    public function setNo($no)
-    {
-        $this->no = $no;
-
-        return $this;
-    }
-
-    /**
-     * Get no
-     *
-     * @return string
-     */
-    public function getNo()
-    {
-        return $this->no;
-    }
-
-    /**
      * Set name
      *
      * @param string $name
      *
-     * @return Code
+     * @return Blog
      */
     public function setName($name)
     {
@@ -146,51 +88,51 @@ class Code
     }
 
     /**
-     * Set memo
+     * Set blogTypeId
      *
-     * @param string $memo
+     * @param integer $blogTypeId
      *
-     * @return Code
+     * @return Blog
      */
-    public function setMemo($memo)
+    public function setBlogTypeId($blogTypeId)
     {
-        $this->memo = $memo;
+        $this->blog_type_id = $blogTypeId;
 
         return $this;
     }
 
     /**
-     * Get memo
-     *
-     * @return string
-     */
-    public function getMemo()
-    {
-        return $this->memo;
-    }
-
-    /**
-     * Set rank
-     *
-     * @param integer $rank
-     *
-     * @return Code
-     */
-    public function setRank($rank)
-    {
-        $this->rank = $rank;
-
-        return $this;
-    }
-
-    /**
-     * Get rank
+     * Get blogTypeId
      *
      * @return integer
      */
-    public function getRank()
+    public function getBlogTypeId()
     {
-        return $this->rank;
+        return $this->blog_type_id;
+    }
+
+    /**
+     * Set fieldId
+     *
+     * @param integer $fieldId
+     *
+     * @return Blog
+     */
+    public function setFieldId($fieldId)
+    {
+        $this->field_id = $fieldId;
+
+        return $this;
+    }
+
+    /**
+     * Get fieldId
+     *
+     * @return integer
+     */
+    public function getFieldId()
+    {
+        return $this->field_id;
     }
 
     /**
@@ -198,7 +140,7 @@ class Code
      *
      * @param boolean $delFlg
      *
-     * @return Code
+     * @return Blog
      */
     public function setDelFlg($delFlg)
     {
@@ -222,7 +164,7 @@ class Code
      *
      * @param integer $updatedBy
      *
-     * @return Code
+     * @return Blog
      */
     public function setUpdatedBy($updatedBy)
     {
@@ -246,7 +188,7 @@ class Code
      *
      * @param \DateTime $updateAt
      *
-     * @return Code
+     * @return Blog
      */
     public function setUpdateAt($updateAt)
     {
@@ -270,7 +212,7 @@ class Code
      *
      * @param integer $createdBy
      *
-     * @return Code
+     * @return Blog
      */
     public function setCreatedBy($createdBy)
     {
@@ -294,7 +236,7 @@ class Code
      *
      * @param \DateTime $createAt
      *
-     * @return Code
+     * @return Blog
      */
     public function setCreateAt($createAt)
     {

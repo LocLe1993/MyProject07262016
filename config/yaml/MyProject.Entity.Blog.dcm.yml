@@ -1,0 +1,37 @@
+MyProject\Entity\Blog:
+  type: entity
+  table: blogs
+  repositoryClass: MyProject\Repository\BlogRepository
+  lifecycleCallbacks:
+    prePersist: [ doPrePersist ]
+    preUpdate: [ doPreUpdate ]
+  indexes:
+    idx_codes_del_flg:
+      columns: [ del_flg ]
+  id:
+    id:
+      type: integer
+      generator:
+        strategy: AUTO
+  fields:
+    name:
+      type: string
+    blog_type_id:
+      type: integer
+    field_id:
+      type: integer
+    del_flg:
+      type: boolean
+      options:
+        default: false
+    updated_by:
+      type: integer
+    update_at:
+      type: datetime
+      columnDefinition: timestamp
+    created_by:
+      type: integer
+    create_at:
+      type: datetime
+      columnDefinition: timestamp
+

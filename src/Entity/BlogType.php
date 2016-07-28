@@ -3,9 +3,9 @@
 namespace MyProject\Entity;
 
 /**
- * Member
+ * BlogType
  */
-class Member
+class BlogType
 {
     /**
      * @var integer
@@ -15,22 +15,12 @@ class Member
     /**
      * @var string
      */
-    private $user_id;
-
-    /**
-     * @var string
-     */
-    private $password;
-
-    /**
-     * @var string
-     */
-    private $email;
-
-    /**
-     * @var string
-     */
     private $name;
+
+    /**
+     * @var integer
+     */
+    private $rank;
 
     /**
      * @var boolean
@@ -57,11 +47,6 @@ class Member
      */
     private $create_at;
 
-    /**
-     * @var \MyProject\Entity\Code
-     */
-    private $Authority;
-
 
     /**
      * Get id
@@ -74,83 +59,11 @@ class Member
     }
 
     /**
-     * Set userId
-     *
-     * @param string $userId
-     *
-     * @return Member
-     */
-    public function setUserId($userId)
-    {
-        $this->user_id = $userId;
-
-        return $this;
-    }
-
-    /**
-     * Get userId
-     *
-     * @return string
-     */
-    public function getUserId()
-    {
-        return $this->user_id;
-    }
-
-    /**
-     * Set password
-     *
-     * @param string $password
-     *
-     * @return Member
-     */
-    public function setPassword($password)
-    {
-        $this->password = $password;
-
-        return $this;
-    }
-
-    /**
-     * Get password
-     *
-     * @return string
-     */
-    public function getPassword()
-    {
-        return $this->password;
-    }
-
-    /**
-     * Set email
-     *
-     * @param string $email
-     *
-     * @return Member
-     */
-    public function setEmail($email)
-    {
-        $this->email = $email;
-
-        return $this;
-    }
-
-    /**
-     * Get email
-     *
-     * @return string
-     */
-    public function getEmail()
-    {
-        return $this->email;
-    }
-
-    /**
      * Set name
      *
      * @param string $name
      *
-     * @return Member
+     * @return BlogType
      */
     public function setName($name)
     {
@@ -170,11 +83,35 @@ class Member
     }
 
     /**
+     * Set rank
+     *
+     * @param integer $rank
+     *
+     * @return BlogType
+     */
+    public function setRank($rank)
+    {
+        $this->rank = $rank;
+
+        return $this;
+    }
+
+    /**
+     * Get rank
+     *
+     * @return integer
+     */
+    public function getRank()
+    {
+        return $this->rank;
+    }
+
+    /**
      * Set delFlg
      *
      * @param boolean $delFlg
      *
-     * @return Member
+     * @return BlogType
      */
     public function setDelFlg($delFlg)
     {
@@ -198,7 +135,7 @@ class Member
      *
      * @param integer $updatedBy
      *
-     * @return Member
+     * @return BlogType
      */
     public function setUpdatedBy($updatedBy)
     {
@@ -222,7 +159,7 @@ class Member
      *
      * @param \DateTime $updateAt
      *
-     * @return Member
+     * @return BlogType
      */
     public function setUpdateAt($updateAt)
     {
@@ -246,7 +183,7 @@ class Member
      *
      * @param integer $createdBy
      *
-     * @return Member
+     * @return BlogType
      */
     public function setCreatedBy($createdBy)
     {
@@ -270,7 +207,7 @@ class Member
      *
      * @param \DateTime $createAt
      *
-     * @return Member
+     * @return BlogType
      */
     public function setCreateAt($createAt)
     {
@@ -287,30 +224,6 @@ class Member
     public function getCreateAt()
     {
         return $this->create_at;
-    }
-
-    /**
-     * Set authority
-     *
-     * @param \MyProject\Entity\Code $authority
-     *
-     * @return Member
-     */
-    public function setAuthority(\MyProject\Entity\Code $authority = null)
-    {
-        $this->Authority = $authority;
-
-        return $this;
-    }
-
-    /**
-     * Get authority
-     *
-     * @return \MyProject\Entity\Code
-     */
-    public function getAuthority()
-    {
-        return $this->Authority;
     }
     /**
      * @ORM\PrePersist
