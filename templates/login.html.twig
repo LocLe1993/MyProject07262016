@@ -1,27 +1,60 @@
-{% extends 'base.html.twig' %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Creative - Bootstrap 3 Responsive Admin Template">
+    <meta name="author" content="GeeksLabs">
+    <meta name="keyword" content="Creative, Dashboard, Admin, Template, Theme, Bootstrap, Responsive, Retina, Minimal">
+    <link rel="shortcut icon" href="img/favicon.png">
 
-{% block title %}Login{% endblock %}
+    <title>Login Page 2 | Creative - Bootstrap 3 Responsive Admin Template</title>
 
-{% block body %}
-	<div class="page-header">
-      	<h1>LOGIN</h1>
+    <!-- Bootstrap CSS -->    
+    <link href="{{ asset('bootstrap.min.css','css') }}" rel="stylesheet">
+    <!-- bootstrap theme -->
+    <link href="{{ asset('bootstrap-theme.css','css') }}" rel="stylesheet">
+    <!--external css-->
+    <!-- font icon -->
+    <link href="{{ asset('elegant-icons-style.css','css') }}" rel="stylesheet" />
+    <link href="{{ asset('font-awesome.css','css') }}" rel="stylesheet" />
+    <!-- Custom styles -->
+    <link href="{{ asset('style.css','css') }}" rel="stylesheet">
+    <link href="{{ asset('style-responsive.css','css') }}" rel="stylesheet" />
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 -->
+    <!--[if lt IE 9]>
+    <script src="js/html5shiv.js"></script>
+    <script src="js/respond.min.js"></script>
+    <![endif]-->
+</head>
+
+
+<body class="login-img3-body">
+	
+    <div class="container">
+
+		<form id="login" action="{{ path('index') }}login_check" class="login-form" method="post">        
+	        <div class="login-wrap">
+	            <p class="login-img"><i class="icon_lock_alt"></i></p>
+	            <div class="input-group"><p class="has-error">{{ error }}</p></div>
+	            <div class="input-group">
+	              <span class="input-group-addon"><i class="icon_profile"></i></span>
+	              <input type="text" class="form-control" name="username"  placeholder="Username" value="{{ last_username }}" autofocus>
+	            </div>
+	            <div class="input-group">
+	                <span class="input-group-addon"><i class="icon_key_alt"></i></span>
+	                <input type="password" class="form-control" name="password" placeholder="Password">
+	            </div>
+	            <label class="checkbox">
+	                <input type="checkbox" name="remember" id="remember"/>
+	                <span class="pull-right"><label for="remember">Stay logged in</label></span>
+	            </label>
+	            <button class="btn btn-primary btn-lg btn-block" type="submit">Login</button>
+	            <button class="btn btn-info btn-lg btn-block" type="submit">Signup</button>
+	        </div>
+	        
+	      </form>
+
     </div>
-	<form id="login" action="{{ path('index') }}login_check" method="post">
-        <table>
-        	<tr><td>{{ error }}</td></tr>
-            <tr><td><input type="text" name="username" value="{{ last_username }}" placeholder="Username" class="top"/></td></tr>
-            <tr><td><input type="password" name="password" value="" placeholder="Password" class="bottom"/></td></tr>
-            <tr><td>
-                    <input type="checkbox" name="remember" id="remember"/>
-                    <label for="remember">Stay logged in</label>
-                </td></tr>
-            <tr><td><input type="submit" value="Login" class="btn btn-primary btn-lg"></td></tr>
-        </table>
-    </form>
-{% endblock %}
-
-{% block inline_script %}
-{% endblock %}
-
-{% block inline_style %}
-{% endblock %}
+</body>

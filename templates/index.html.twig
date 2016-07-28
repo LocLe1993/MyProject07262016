@@ -1,15 +1,6 @@
 {% extends "layout.html.twig" %}
 
 {% block content %}
-    Welcome to your new Silex Application!
-
-    {{ str|testHelper }}
-
-    {{ amount|testHelper }}
     
-    <form action="{{ path('logout') }}" method="POST">
-       	<input type="hidden" id="_method" name="_method" value="DELETE" class="submit_btn" />
-       	<button type="submit" class="submit-btn" title="Logout"><span class="glyphicon glyphicon glyphicon-log-out" aria-hidden="true"></span></button>
-   	</form>
 
 {% endblock %}

@@ -4,7 +4,7 @@
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>{% block title %} {{ header_title }} {% endblock %}</title>
+        <title>{% block title %} {{ header_title|default(null) }} {% endblock %}</title>
         <!-- Latest compiled and minified CSS -->
 		<link rel="stylesheet" href="{{ asset('bootstrap.min.css','css') }}">
 		
@@ -40,7 +40,7 @@
                 	<!-- Collect the nav links, forms, and other content for toggling -->
                 	<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                  		<ul class="nav navbar-nav">
-                    		<li{% if title == 'home' %} class="active"{% endif %}><a href="{{ url('index') }}">Home</a></li>
+                    		<li{% if title|default(null) == 'home' %} class="active"{% endif %}><a href="{{ url('index') }}">Home</a></li>
                   		</ul>
                 	</div><!-- /.navbar-collapse -->
               	</div><!-- /.container-fluid -->

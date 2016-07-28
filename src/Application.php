@@ -312,9 +312,10 @@ class Application extends \Silex\Application {
             'assets.version' => ASSET_VERSION,
             'assets.version_format' => 'version',
             'assets.named_packages' => array(
-                'css' => array('version' => ASSET_CSS_VERSION, 'base_path' => ASSET_CSS_BASE_PATH),
-                'img' => array('version' => ASSET_IMG_VERSION, 'base_path' => ASSET_IMG_BASE_PATH),
-                'js' => array('version' => ASSET_JS_VERSION, 'base_path' => ASSET_JS_BASE_PATH),
+                'css' => array('base_path' => ASSET_CSS_BASE_PATH),
+                'img' => array('base_path' => ASSET_IMG_BASE_PATH),
+                'js' => array('base_path' => ASSET_JS_BASE_PATH),
+            	'assets' => array('base_path' => ASSET_ASSETS_BASE_PATH),
             ),
         ));
     }

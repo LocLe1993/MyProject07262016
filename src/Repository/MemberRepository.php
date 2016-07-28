@@ -2,6 +2,8 @@
 
 namespace MyProject\Repository;
 
+use Symfony\Component\Security\Core\Exception\UsernameNotFoundException;
+
 /**
  * MemberRepository
  *

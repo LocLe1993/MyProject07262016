@@ -1,0 +1,7 @@
+.btnLogout {
+	margin:0px; font-size: 14px;display: inline-block;width:100%; background-color:#fff;
+}
+.btnLogout:hover {
+	background-color: #688a7e; 
+    color: white;
+}
