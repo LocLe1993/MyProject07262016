@@ -8,7 +8,7 @@ class BlogController {
 		
 		$list = $app['Myproject.Blog.Repository']->getListAll();
 		
-		return $app['twig']->render('blog/index.html.twig',array('list'=> $list));
+		return $app['twig']->render('blog/index.html.twig',array('list'=> $list,'PageName' => 'BLOG LIST','CurrentPage'=>'Blog List'));
 		
 	}
 }

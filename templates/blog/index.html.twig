@@ -1,7 +1,7 @@
 {% extends "layout.html.twig" %}
 
 {% block content %}
-    
+    <div class="panel-body">
     {% for item in list %}
     
     {{ item.name }}<br/>{{ item.bt_name }}<br/>{{ item.f_name }}
@@ -10,5 +10,5 @@
     {% endfor %}
 	
 	<textarea class="form-control ckeditor" name="editor1" rows="6" style="visibility: hidden; display: none;"></textarea>
-
+	</div>
 {% endblock %}
