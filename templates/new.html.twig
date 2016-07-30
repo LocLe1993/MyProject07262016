@@ -71,60 +71,54 @@
 </script>
 </head>
 <body>
-	<div class="bgimg-1">
-		<div class="caption">
-			<span class="border">SCROLL DOWN</span>
+	<div class="parallax-container" data-parallax="scroll" data-bleed="10"
+		data-speed="0.4"
+		data-image-src="{{ asset('paralax-img/parallax-1.jpg','img') }}"
+		data-natural-width="" data-natural-height="" style="min-height: 55%">
+
+	</div>
+
+	<div class="parallax-container" data-parallax="scroll" data-bleed="5"
+		data-speed="0.7"
+		data-image-src="{{ asset('paralax-img/parallax-2.jpg','img') }}"
+		data-natural-width="" data-natural-height="" style="height: 40%;">
+		<div class="row">
+			<div class="col-md-7">
+				<section class="lazy-load-box effect-fade" data-delay="200"
+					data-speed="800"
+					style="-webkit-transition: all 800ms ease; -moz-transition: all 800ms ease; -ms-transition: all 800ms ease; -o-transition: all 800ms ease; transition: all 800ms ease;">
+					<h2>OUR COMMITMENT</h2>
+					<h5>Lorem ipsum dolor sit amet conse ctetur adipisicing elit, sed
+						do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
+						enim ad minim veniam, quis nostrud exercitation ullamco laboris
+						nisi ut aliquip ex ea commodo consequat.</h5>
+					<p>Lorem ipsum dolor sit amet conse ctetur adipisicing elit, sed do
+						eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
+						enim ad minim veniam, quis nostrud exercitation ullamco laboris
+						nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in
+						reprehenderit in voluptate velit esse cillum dolore eu fugiat
+						nulla pariatur. Lorem ipsum dolor sit amet conse ctetur
+						adipisicing elit.</p>
+					<a href="blog/" title="Read more"
+						class="btn btn-default btn-normal btn-inline btn-1" target="_self"
+						data-hover="Read more">Read more<span></span></a>
+				</section>
+			</div>
 		</div>
 	</div>
 
-	
+	<div class="parallax-container" data-parallax="scroll" data-bleed="5"
+		data-speed="0.7"
+		data-image-src="{{ asset('paralax-img/parallax-3.jpg','img') }}"
+		data-natural-width="" data-natural-height="" style="height: 40%"></div>
 
-	<div class="bgimg-2">
-		<div class="caption">
-			<span class="border col-md-7" style="background-color: transparent; font-size: 15px; color: #f7f7f7; text-align: left;">
-<h1>OUR COMMITMENT</h1>
-<p>LOREM IPSUM DOLOR SIT AMET CONSE CTETUR ADIPISICING ELIT, SED DO EIUSMOD TEMPOR INCIDIDUNT UT LABORE ET DOLORE MAGNA ALIQUA. UT ENIM AD MINIM VENIAM, QUIS NOSTRUD EXERCITATION ULLAMCO LABORIS NISI UT ALIQUIP EX EA COMMODO CONSEQUAT.</p>
-
-<p>Lorem ipsum dolor sit amet conse ctetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Lorem ipsum dolor sit amet conse ctetur adipisicing elit.</p>
-			</span>
-		</div>
-	</div>
-
-	<div style="position: relative;">
-		<div
-			style="color: #ddd; background-color: #282E34; text-align: center; padding: 50px 80px; text-align: justify;">
-			<p>Scroll up and down to really get the feeling of how Parallax
-				Scrolling works.</p>
-		</div>
-	</div>
-
-	<div class="bgimg-3">
-		<div class="caption">
-			<span class="border" style="background-color: transparent; font-size: 25px; color: #f7f7f7;">
-				<h1>WHO WE ARE</h1>
-
-<p>LOREM IPSUM DOLOR SIT AMET CONSE CTETUR ADIPISICING ELIT, SED DO EIUSMOD TEMPOR INCIDIDUNT UT LABORE ET DOLORE MAGNA</p>
-<p>Lorem ipsum dolor sit amet conse ctetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit.</p>
-			</span>
-		</div>
-	</div>
-
-	<div style="position: relative;">
-		<div
-			style="color: #ddd; background-color: #282E34; text-align: center; padding: 50px 80px; text-align: justify;">
-			<p>Scroll up and down to really get the feeling of how Parallax
-				Scrolling works.</p>
-		</div>
-	</div>
-
-	<div class="bgimg-1">
-		<div class="caption">
-			<span class="border">COOL!</span>
-		</div>
-	</div>
-
+	<div class="parallax-container" data-parallax="scroll" data-bleed="5"
+		data-speed="0.7"
+		data-image-src="{{ asset('paralax-img/slide-1.jpg','img') }}"
+		data-natural-width="" data-natural-height="" style="height: 40%"></div>
 
 	<!-- javascripts -->
+
 	<script src="{{ asset('jquery.js','js') }}"></script>
 	<script src="{{ asset('jquery-ui-1.10.4.min.js','js') }}"></script>
 	<script src="{{ asset('jquery-1.8.3.min.js','js') }}"></script>
@@ -170,7 +164,7 @@
 	<script src="{{ asset('sparklines.js','js') }}"></script>
 	<script src="{{ asset('charts.js','js') }}"></script>
 	<script src="{{ asset('jquery.slimscroll.min.js','js') }}"></script>
-
+	<script src="{{ asset('parallax/parallax.min.js','js') }}"></script>
 	<script type="text/javascript"
 		src="{{ asset('ckeditor/ckeditor.js','assets') }}"></script>
 
