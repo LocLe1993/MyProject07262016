@@ -1,0 +1,2 @@
+admin
+$2y$10$VGuexkFQhPq/JRElhPMA4.DmmlfhPwJCFTyi139bFyP9Hvi8QH1Y6
