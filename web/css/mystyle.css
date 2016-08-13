@@ -57,3 +57,16 @@ h3 {
   text-transform: uppercase;
   color: #111;
 }
+
+.px-content {
+	background-color: #ff0000;
+	height:auto;
+	color: #ffffff;
+	margin:10px;
+}
+.px-row {
+	width:100%;
+	margin:0px;
+	padding:40px;
+	display:inline-block;
+}

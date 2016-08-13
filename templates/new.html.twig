@@ -69,21 +69,37 @@
 		s.parentNode.insertBefore(ga, s);
 	})();
 </script>
+
+<script src="http://maps.googleapis.com/maps/api/js?key=AIzaSyDV33UBYOq97DYfI3QQdT9UCaoRdXOW37g"></script>
+<script>
+function initialize() {
+  var mapProp = {
+    center:new google.maps.LatLng(38.268215,140.869356),
+    zoom:9,
+    mapTypeId:google.maps.MapTypeId.ROADMAP
+  };
+  var map=new google.maps.Map(document.getElementById("googleMap"),mapProp);
+}
+google.maps.event.addDomListener(window, 'load', initialize);
+</script>
+
 </head>
 <body>
-	<div class="parallax-container" data-parallax="scroll" data-bleed="10"
-		data-speed="0.4"
-		data-image-src="{{ asset('paralax-img/parallax-1.jpg','img') }}"
-		data-natural-width="" data-natural-height="" style="min-height: 55%">
 
-	</div>
 
 	<div class="parallax-container" data-parallax="scroll" data-bleed="5"
-		data-speed="0.7"
+		data-speed="0.5"
+		data-image-src="{{ asset('paralax-img/slide-1.jpg','img') }}"
+		data-natural-width="2050" data-natural-height="1130"
+		style="height: 700px;"></div>
+
+	<div class="parallax-container" data-parallax="scroll" data-bleed="5"
+		data-speed="0.5"
 		data-image-src="{{ asset('paralax-img/parallax-2.jpg','img') }}"
-		data-natural-width="" data-natural-height="" style="height: 40%;">
-		<div class="row">
-			<div class="col-md-7">
+		data-natural-width="1920" data-natural-height="620"
+		style="height: 500px; width: initial; overflow: hidden;">
+		<div class="px-row">
+			<div class="col-sm-6 col-md-7 px-content">
 				<section class="lazy-load-box effect-fade" data-delay="200"
 					data-speed="800"
 					style="-webkit-transition: all 800ms ease; -moz-transition: all 800ms ease; -ms-transition: all 800ms ease; -o-transition: all 800ms ease; transition: all 800ms ease;">
@@ -99,7 +115,7 @@
 						reprehenderit in voluptate velit esse cillum dolore eu fugiat
 						nulla pariatur. Lorem ipsum dolor sit amet conse ctetur
 						adipisicing elit.</p>
-					<a href="blog/" title="Read more"
+					<a href="{{ path('new') }}" title="Read more"
 						class="btn btn-default btn-normal btn-inline btn-1" target="_self"
 						data-hover="Read more">Read more<span></span></a>
 				</section>
@@ -107,15 +123,35 @@
 		</div>
 	</div>
 
-	<div class="parallax-container" data-parallax="scroll" data-bleed="5"
-		data-speed="0.7"
-		data-image-src="{{ asset('paralax-img/parallax-3.jpg','img') }}"
-		data-natural-width="" data-natural-height="" style="height: 40%"></div>
+	<div class="parallax-container" data-parallax="scroll" data-bleed="10"
+		data-speed="0.5"
+		data-image-src="{{ asset('paralax-img/parallax-1.jpg','img') }}"
+		data-natural-width="1920" data-natural-height="1140"
+		style="min-height: 500px"></div>
 
 	<div class="parallax-container" data-parallax="scroll" data-bleed="5"
-		data-speed="0.7"
-		data-image-src="{{ asset('paralax-img/slide-1.jpg','img') }}"
-		data-natural-width="" data-natural-height="" style="height: 40%"></div>
+		data-speed="0.5"
+		data-image-src="{{ asset('paralax-img/parallax-3.jpg','img') }}"
+		data-natural-width="1920" data-natural-height="1000"
+		style="height: 500px;"></div>
+
+
+
+	<div class="px-row">
+		<div class="col-md-6 pull-left">
+			<h2>CONTACT</h2>
+			<p>Lorem ipsum dolor sit amet conse
+			ctetur adipisicing elit, sed do eiusmod tempor incididunt ut labore
+			et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
+			exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+			Duis aute irure dolor in reprehenderit in voluptate velit esse cillum
+			dolore eu fugiat nulla pariatur. Lorem ipsum dolor sit amet conse
+			ctetur adipisicing elit.</p>
+		</div>
+		<div class="col-md-6 pull-right">
+			<div id="googleMap" style="width:500px;height:380px;"></div>
+		</div>
+	</div>
 
 	<!-- javascripts -->
 
@@ -168,5 +204,6 @@
 	<script type="text/javascript"
 		src="{{ asset('ckeditor/ckeditor.js','assets') }}"></script>
 
+	
 </body>
 </html>
