@@ -52,23 +52,6 @@
 	      <script src="{{ asset('lte-ie7.js','js') }}"></script>
 	    <![endif]-->
 
-
-<script type="text/javascript">
-	var _gaq = _gaq || [];
-	_gaq.push([ '_setAccount', 'UA-XXXXXXXX-X' ]);
-	_gaq.push([ '_trackPageview' ]);
-
-	(function() {
-		var ga = document.createElement('script');
-		ga.type = 'text/javascript';
-		ga.async = true;
-		ga.src = ('https:' == document.location.protocol ? 'https://ssl'
-				: 'http://www')
-				+ '.google-analytics.com/ga.js';
-		var s = document.getElementsByTagName('script')[0];
-		s.parentNode.insertBefore(ga, s);
-	})();
-</script>
 </head>
 <body>
 
@@ -135,18 +118,26 @@
 					<li class="active"><a class="" href="{{ path('index') }}">
 							<i class="icon_house_alt"></i> <span>Dashboard</span>
 					</a></li>
-					<li><a class="" href="{{ path('blog') }}">
-							<i class="icon_documents_alt"></i> <span>Blog</span>
-					</a></li>
+					<li class="sub-menu">
+    					<a class="" href="javascript:;">
+    							<i class="icon_documents_alt"></i> <span>Blog</span><span
+							class="menu-arrow arrow_carrot-right"></span>
+    					</a>
+						<ul class="sub">
+							<li><a class="" href="{{ path('blog') }}">List Blog</a></li>
+							<li><a class="" href="{{ path('addBlog') }}">Add Blog</a></li>
+						</ul>
+					</li>
 					<li class="sub-menu"><a href="javascript:;" class=""> <i
 							class="icon_document_alt"></i> <span>Forms</span> <span
 							class="menu-arrow arrow_carrot-right"></span>
-					</a>
+						</a>
 						<ul class="sub">
 							<li><a class="" href="form_component.html">Form Elements</a></li>
 							<li><a class="" href="form_validation.html">Form
 									Validation</a></li>
-						</ul></li>
+						</ul>
+					</li>
 
 				</ul>
 				<!-- sidebar menu end-->

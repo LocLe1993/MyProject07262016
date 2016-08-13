@@ -10,4 +10,9 @@ namespace MyProject\Repository;
  */
 class BlogTypeRepository extends \Doctrine\ORM\EntityRepository
 {
+	public function getAllForCBB() {
+		return $this->createQueryBuilder('bt')
+			->select('bt.id, bt.name')
+			->where('bt.del_flg=0')->getQuery()->getArrayResult();
+	}
 }

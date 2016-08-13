@@ -19,4 +19,29 @@ class BlogRepository extends \Doctrine\ORM\EntityRepository
 					->getQuery()
 					->getArrayResult();
 	}
+	
+	public function getListByCondition($blogname,$field,$blogtype) {
+		$query = $this->createQueryBuilder('p')
+		->select('p.name,bt.name as bt_name,f.name as f_name')
+		->from('MyProject\Entity\BlogType', 'bt')
+		->from('MyProject\Entity\Field', 'f')
+		->where('p.del_flg=0 AND p.blog_type_id = bt.id AND p.field_id = f.id');
+		
+		if($blogname!="") {
+			$query->andWhere('p.name like :name')
+			->setParameter('name', "%$blogname%");
+		}
+			
+		if($field != 0) {
+			$query->andWhere('f.id= :fieldid')->setParameter('fieldid', $field);
+		}
+		
+		if ($blogtype != 0) {
+			$query->andWhere('bt.id=:blogid')->setParameter('blogid', $blogtype);
+		}
+		
+		return $query
+		->getQuery()
+		->getArrayResult();
+	}
 }

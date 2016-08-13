@@ -10,4 +10,9 @@ namespace MyProject\Repository;
  */
 class FieldRepository extends \Doctrine\ORM\EntityRepository
 {
+	public function getAllForCBB() {
+		return $this->createQueryBuilder('f')
+		->select('f.id, f.name')
+		->where('f.del_flg=0')->getQuery()->getArrayResult();
+	}
 }
