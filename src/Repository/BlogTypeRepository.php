@@ -2,6 +2,7 @@
 
 namespace MyProject\Repository;
 
+use MyProject\Entity\Blog;
 /**
  * BlogTypeRepository
  *
@@ -10,6 +11,13 @@ namespace MyProject\Repository;
  */
 class BlogTypeRepository extends \Doctrine\ORM\EntityRepository
 {
+	public  function getListAll(){
+		return  $this->createQueryBuilder('p')
+					->select('p.name, p.rank')
+					->getQuery()
+					->getArrayResult();
+	}
+	
 	public function getAllForCBB() {
 		return $this->createQueryBuilder('bt')
 			->select('bt.id, bt.name')

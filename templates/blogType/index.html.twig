@@ -1,0 +1,46 @@
+{% extends "layout.html.twig" %}
+
+{% block content %}
+    <div class="panel-body">
+		<h1>List Block</h1>
+		<div class="row">
+			<div class="col-sm-12">
+				<div class="col-sm-6">
+					<div class="col-sm-12">
+						<div class="col-sm-4"><label>Name</label></div>
+						<div class="col-sm-8"><input type="text" name="blogtypename" class="form-control" /></div>
+					</div>
+				</div>
+				<div class="col-sm-6">
+					<div class="col-sm-12">
+						<div class="col-sm-4"><label>Rank</label></div>
+						<div class="col-sm-8"><input type="text" name="blogtyperank" class="form-control" /></div>
+					</div>
+				</div>
+			</div>
+			<div style="clear:both"></div>
+			<div class="col-sm-12">
+				<div class="col-sm-1"></div>
+				<div class="col-sm-11">
+					<button type="submit" class="btn btn-primary">Search</button> 
+				</div>
+			</div>
+		</div>
+		<div class="row">
+			<table class="table table-responsive table-hover table-stripped">
+				<tr>
+					<th>Tên</th>
+					<th>Xếp hạng </th>
+				</tr>
+				{% for item in list %}
+					<tr>
+						<td>{{ item.name }}</td>
+						<td>{{ item.rank }}</td>
+						
+					</tr>
+		        {% endfor %}			
+				
+			</table>
+		</div>
+	</div>
+{% endblock %}

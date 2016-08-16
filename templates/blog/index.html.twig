@@ -61,6 +61,7 @@
     			<th>
     				Loại lĩnh vực
     			</th>
+    			<th></th>
 			</tr>
 			{% if list %}
 			{% for listItem in list %}
@@ -68,6 +69,22 @@
     				<td>{{ listItem.name }}</td>
     				<td>{{ listItem.bt_name }}</td>
     				<td>{{ listItem.f_name }}</td>
+    				<td>
+						<form action="{{ path('updateBlog') }}">
+							<input type="hidden" name="blogId" value="{{ listItem.id }}" />
+    						<button class="btn btn-primary">
+    							Update
+    						</button>
+						</form>
+					</td>
+					<td>
+						<form action="{{ path('deleteBlog') }}" method="post">
+							<input type="hidden" name="blogId" value="{{ listItem.id }}" />
+    						<button class="btn btn-primary">
+    							Delete
+    						</button>
+						</form>
+					</td>
     			</tr>
 			{% endfor %}
 			{% else %}

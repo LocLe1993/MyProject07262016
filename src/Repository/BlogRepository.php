@@ -2,6 +2,8 @@
 
 namespace MyProject\Repository;
 
+use MyProject\Entity\Blog;
+
 /**
  * BlogRepository
  *
@@ -12,7 +14,7 @@ class BlogRepository extends \Doctrine\ORM\EntityRepository
 {
 	public function getListAll() {
 		return $this->createQueryBuilder('p')
-					->select('p.name,bt.name as bt_name,f.name as f_name')
+					->select('p.id,p.name,bt.name as bt_name,f.name as f_name')
 					->from('MyProject\Entity\BlogType', 'bt')
 					->from('MyProject\Entity\Field', 'f')
 					->where('p.del_flg=0 AND p.blog_type_id = bt.id AND p.field_id = f.id')
@@ -43,5 +45,39 @@ class BlogRepository extends \Doctrine\ORM\EntityRepository
 		return $query
 		->getQuery()
 		->getArrayResult();
+	}
+	
+	public function save(Blog $blog){
+		$em=$this->getEntityManager();
+		$em->getConnection()->beginTransaction();
+		try {
+			$em->persist($blog);
+			$em->flush();
+			$em->getConnection()->commit();
+		} catch (Exception $e) {
+			$em->getConnection()->rollBack();
+			return false;
+		}
+		return true;
+	}
+	
+	public function deleteBlog(Blog $blog){
+		$em=$this->getEntityManager();
+		$em->getConnection()->beginTransaction();
+		try {
+			$em->persist($blog);
+			$blog->setDelFlg(1);
+			$em->flush();
+			$em->getConnection()->commit();
+		} catch (Exception $e) {
+			$em->getConnection()->rollBack();
+			return false;
+		}
+		return true;
+	}
+	
+	public  function  getBlogById($id){
+		return  $this->createQueryBuilder('p')->select()->where('p.id=:id')->setParameter('id', $id)
+		->getQuery()->getSingleResult();
 	}
 }

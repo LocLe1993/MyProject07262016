@@ -18,8 +18,19 @@ class ControllerProvider implements ControllerProviderInterface
         
         $controllers->get('/blog', 'MyProject\Controller\BlogController::index')->bind('blog');
         
-        $controllers->get('/blog/add','MyProject\Controller\BlogController::addBlog')->bind('addBlog');
+        $controllers->get('/blog/add','MyProject\Controller\BlogController::addBlogPage')->bind('addBlog');
+        $controllers->post('/blog/addblog','MyProject\Controller\BlogController::addBlog')->bind('addBlogPost');
+        
+        $controllers->get('/blog/update','MyProject\Controller\BlogController::updateBlogPage')->bind('updateBlog');
+        $controllers->post('/blog/updateblog','MyProject\Controller\BlogController::updateBlog')->bind('updateBlogPost');
+        
+        $controllers->post('/blog/deleteblog','MyProject\Controller\BlogController::deleteBlog')->bind('deleteBlog');
+        
+        $controllers->get('/blogType', 'MyProject\Controller\BlogTypeController::index')->bind('blogType');
+        
+        $controllers->get('/blogType/add','MyProject\Controller\BlogTypeController::addBlogType')->bind('addBlogType');
 
+        
         /* Login */
         $controllers->get('/login', 'MyProject\Controller\AdminController::login')->bind('login');
         

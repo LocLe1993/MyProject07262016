@@ -2,12 +2,13 @@
 
 {% block content %}
 <div class="row">
-	<form action={{ path('addBlogPost') }} method="post">
+	<form action={{ path('updateBlogPost') }} method="post">
+		<input type="hidden" name="blogId" value="{{ blog.id }}" />
     	<div class="col-sm-12">
     		<div class="col-sm-6">
     			<div class="col-sm-12">
     				<div class="col-sm-4"><label>Tên blog</label></div>
-    				<div class="col-sm-8"><input type="text" name="blogname" class="form-control"/></div>
+    				<div class="col-sm-8"><input type="text" name="blogname" class="form-control" value="{{ blog.name }}" /></div>
     			</div>
     			<div class="col-sm-12">
     				<div class="col-sm-4"><label>Loại blog</label></div>
@@ -15,7 +16,7 @@
     					<select class="form-control" name="blogtype">
     						<option value="0">-----Chọn loại blog-----</option>
     						{% for item in listType %}
-    							<option value={{ item.id }}>{{ item.name }}</option>
+    							<option value={{ item.id }} {% if blog.blogTypeId == item.id %} selected {% endif %}>{{ item.name }}</option>
     						{% endfor %}
     					</select>
 					</div>
@@ -28,7 +29,7 @@
     					<select class="form-control" name="field">
     						<option value="0">-----Chọn lĩnh vực-----</option>
     						{% for item in listField %}
-    							<option value={{ item.id }}>{{ item.name }}</option>
+    							<option value={{ item.id }}{% if blog.fieldId == item.id %} selected {% endif %}>{{ item.name }}</option>
     						{% endfor %}
     					</select>
     				</div>
@@ -43,9 +44,9 @@
     	<div class="col-sm-12 ">
     		<div class="col-sm-1"></div>
     		<div class="col-sm-11 ">
-    			<button type="submit" class="btn btn-primary "> Add blog</button>
+    			<button type="submit" class="btn btn-primary "> Update blog</button>
     			{% if result == 1 %}
-        			<label>Thêm thành công</label>
+        			<label>Cập nhật thành công</label>
     			{% endif %}
     		</div>
     	</div>
