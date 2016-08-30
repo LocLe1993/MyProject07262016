@@ -18,3 +18,4 @@
     define ( "ASSET_IMG_BASE_PATH", "/img" );
     define ( "ASSET_JS_VERSION", "v1" );
     define ( "ASSET_JS_BASE_PATH", "/js" );
+    define ( "ASSET_ASSETS_BASE_PATH", "/assets" );
