@@ -17,6 +17,8 @@ class ControllerProvider implements ControllerProviderInterface
         $controllers->get('/new', 'MyProject\Controller\HomeController::newhtml')->bind('new');
         
         $controllers->get('/blog', 'MyProject\Controller\BlogController::index')->bind('blog');
+        
+        $controllers->get('/blog/add', 'MyProject\Controller\BlogController::addView')->bind('blogadd');
 
         /* Login */
         $controllers->get('/login', 'MyProject\Controller\AdminController::login')->bind('login');

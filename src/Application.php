@@ -10,6 +10,7 @@ use Symfony\Component\Yaml\Yaml;
 use Silex\Provider\SessionServiceProvider;
 use Symfony\Component\HttpFoundation\Request;
 use Silex\Provider\TranslationServiceProvider;
+use Silex\Provider\FormServiceProvider;
 
 class Application extends \Silex\Application {
 	public function __construct(array $values = array())
@@ -49,6 +50,7 @@ class Application extends \Silex\Application {
 
 	public function initServiceAndRouting() {
 		$this->register(new ServiceControllerServiceProvider());
+		$this->register(new FormServiceProvider());
 		$this->register(new AssetServiceProvider());
 		$this->register(new TwigServiceProvider());
 		$this->register(new HttpFragmentServiceProvider());

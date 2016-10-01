@@ -17,6 +17,13 @@ class ServiceProvider implements ServiceProviderInterface
         $app['Myproject.Blog.Repository'] = $app->factory(function () use ($app) {
         	return $app['orm.em']->getRepository('MyProject\Entity\Blog');
         });
+        
+       	$app['form.types'] = $app->extend('form.types', function ($types) use ($app) {
+       		$types[] =
+       			new \MyProject\Form\BlogTypes();
+       		
+       		return $types;
+       	});
     }
 
     public function boot(Application $app)
