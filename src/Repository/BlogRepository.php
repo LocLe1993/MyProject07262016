@@ -19,4 +19,13 @@ class BlogRepository extends \Doctrine\ORM\EntityRepository
 					->getQuery()
 					->getArrayResult();
 	}
+	
+	public function getBlogById($id) {
+		return $this->createQueryBuilder('p')
+		->select('')
+		->where('p.del_flg=0 AND p.id = :id')
+		->setParameter('id',$id)
+		->getQuery()
+		->getSingleResult();
+	}
 }

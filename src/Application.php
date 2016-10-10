@@ -51,6 +51,7 @@ class Application extends \Silex\Application {
 	public function initServiceAndRouting() {
 		$this->register(new ServiceControllerServiceProvider());
 		$this->register(new FormServiceProvider());
+		$this->register(new \Silex\Provider\ValidatorServiceProvider());
 		$this->register(new AssetServiceProvider());
 		$this->register(new TwigServiceProvider());
 		$this->register(new HttpFragmentServiceProvider());
@@ -300,9 +301,9 @@ class Application extends \Silex\Application {
     private function initLocale() {
         $this->register(new TranslationServiceProvider(), array (
             'locale_fallbacks' => array (
-                LOCALE 
+                'en' 
             ),
-            'locale' => LOCALE 
+            'locale' => 'en' 
         ) );
     }
 
