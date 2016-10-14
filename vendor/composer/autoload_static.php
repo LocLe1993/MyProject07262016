@@ -8,9 +8,9 @@ class ComposerStaticInite0f6313ca05d8af830b6aa2a5d6263c1
 {
     public static $files = array (
         '0e6d7bf4a5811bfa5cf40c5ccd6fae6a' => __DIR__ . '/..' . '/symfony/polyfill-mbstring/bootstrap.php',
+        '6a47392539ca2329373e0d33e1dba053' => __DIR__ . '/..' . '/symfony/polyfill-intl-icu/bootstrap.php',
         '5255c38a0faeba867671b61dfda6d864' => __DIR__ . '/..' . '/paragonie/random_compat/lib/random.php',
         '023d27dca8066ef29e6739335ea73bad' => __DIR__ . '/..' . '/symfony/polyfill-php70/bootstrap.php',
-        '6a47392539ca2329373e0d33e1dba053' => __DIR__ . '/..' . '/symfony/polyfill-intl-icu/bootstrap.php',
         'bd9634f2d41831496de0d3dfe4c94881' => __DIR__ . '/..' . '/symfony/polyfill-php56/bootstrap.php',
     );
 
@@ -39,6 +39,7 @@ class ComposerStaticInite0f6313ca05d8af830b6aa2a5d6263c1
             'Symfony\\Component\\Filesystem\\' => 29,
             'Symfony\\Component\\EventDispatcher\\' => 34,
             'Symfony\\Component\\DomCrawler\\' => 29,
+            'Symfony\\Component\\DependencyInjection\\' => 38,
             'Symfony\\Component\\Debug\\' => 24,
             'Symfony\\Component\\CssSelector\\' => 30,
             'Symfony\\Component\\Console\\' => 26,
@@ -49,8 +50,13 @@ class ComposerStaticInite0f6313ca05d8af830b6aa2a5d6263c1
             'Symfony\\Bundle\\WebProfilerBundle\\' => 33,
             'Symfony\\Bridge\\Twig\\' => 20,
             'Symfony\\Bridge\\Monolog\\' => 23,
+            'Symfony\\Bridge\\Doctrine\\' => 24,
             'Silex\\' => 6,
             'Saxulum\\DoctrineOrmManagerRegistry\\' => 35,
+        ),
+        'P' => 
+        array (
+            'Psr\\Log\\' => 8,
         ),
         'M' => 
         array (
@@ -155,6 +161,10 @@ class ComposerStaticInite0f6313ca05d8af830b6aa2a5d6263c1
         array (
             0 => __DIR__ . '/..' . '/symfony/dom-crawler',
         ),
+        'Symfony\\Component\\DependencyInjection\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/symfony/dependency-injection',
+        ),
         'Symfony\\Component\\Debug\\' => 
         array (
             0 => __DIR__ . '/..' . '/symfony/debug',
@@ -195,6 +205,10 @@ class ComposerStaticInite0f6313ca05d8af830b6aa2a5d6263c1
         array (
             0 => __DIR__ . '/..' . '/symfony/monolog-bridge',
         ),
+        'Symfony\\Bridge\\Doctrine\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/symfony/doctrine-bridge',
+        ),
         'Silex\\' => 
         array (
             0 => __DIR__ . '/..' . '/silex/silex/src/Silex',
@@ -202,6 +216,10 @@ class ComposerStaticInite0f6313ca05d8af830b6aa2a5d6263c1
         'Saxulum\\DoctrineOrmManagerRegistry\\' => 
         array (
             0 => __DIR__ . '/..' . '/saxulum/saxulum-doctrine-orm-manager-registry-provider/src',
+        ),
+        'Psr\\Log\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/psr/log/Psr/Log',
         ),
         'MyProject\\' => 
         array (
@@ -246,10 +264,6 @@ class ComposerStaticInite0f6313ca05d8af830b6aa2a5d6263c1
         ),
         'P' => 
         array (
-            'Psr\\Log\\' => 
-            array (
-                0 => __DIR__ . '/..' . '/psr/log',
-            ),
             'Pimple' => 
             array (
                 0 => __DIR__ . '/..' . '/pimple/pimple/src',

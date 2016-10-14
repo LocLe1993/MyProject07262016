@@ -5,7 +5,7 @@ namespace MyProject\Entity;
 /**
  * Blog
  */
-class Blog
+class Blog extends Entity
 {
     /**
      * @var integer
@@ -27,32 +27,7 @@ class Blog
      */
     private $field_id;
 
-    /**
-     * @var boolean
-     */
-    private $del_flg = false;
-
-    /**
-     * @var integer
-     */
-    private $updated_by;
-
-    /**
-     * @var \DateTime
-     */
-    private $update_at;
-
-    /**
-     * @var integer
-     */
-    private $created_by;
-
-    /**
-     * @var \DateTime
-     */
-    private $create_at;
-
-
+    
     /**
      * Get id
      *
@@ -96,7 +71,7 @@ class Blog
      */
     public function setBlogTypeId($blogTypeId)
     {
-        $this->blog_type_id = $blogTypeId;
+        $this->blog_type_id = $blogTypeId->getId();
 
         return $this;
     }
@@ -108,7 +83,10 @@ class Blog
      */
     public function getBlogTypeId()
     {
-        return $this->blog_type_id;
+    	if($this->blog_type_id != null)
+    		return $GLOBALS['app']['Myproject.BlogType.Repository']->getById($this->blog_type_id);
+    	return $this->blog_type_id;
+        //return $this->blog_type_id;
     }
 
     /**
@@ -120,7 +98,7 @@ class Blog
      */
     public function setFieldId($fieldId)
     {
-        $this->field_id = $fieldId;
+        $this->field_id = $fieldId->getId();
 
         return $this;
     }
@@ -132,142 +110,8 @@ class Blog
      */
     public function getFieldId()
     {
+    	if($this->field_id != null)
+        	return $GLOBALS['app']['Myproject.BlogType.Repository']->getById($this->field_id);
         return $this->field_id;
     }
-
-    /**
-     * Set delFlg
-     *
-     * @param boolean $delFlg
-     *
-     * @return Blog
-     */
-    public function setDelFlg($delFlg)
-    {
-        $this->del_flg = $delFlg;
-
-        return $this;
-    }
-
-    /**
-     * Get delFlg
-     *
-     * @return boolean
-     */
-    public function getDelFlg()
-    {
-        return $this->del_flg;
-    }
-
-    /**
-     * Set updatedBy
-     *
-     * @param integer $updatedBy
-     *
-     * @return Blog
-     */
-    public function setUpdatedBy($updatedBy)
-    {
-        $this->updated_by = $updatedBy;
-
-        return $this;
-    }
-
-    /**
-     * Get updatedBy
-     *
-     * @return integer
-     */
-    public function getUpdatedBy()
-    {
-        return $this->updated_by;
-    }
-
-    /**
-     * Set updateAt
-     *
-     * @param \DateTime $updateAt
-     *
-     * @return Blog
-     */
-    public function setUpdateAt($updateAt)
-    {
-        $this->update_at = $updateAt;
-
-        return $this;
-    }
-
-    /**
-     * Get updateAt
-     *
-     * @return \DateTime
-     */
-    public function getUpdateAt()
-    {
-        return $this->update_at;
-    }
-
-    /**
-     * Set createdBy
-     *
-     * @param integer $createdBy
-     *
-     * @return Blog
-     */
-    public function setCreatedBy($createdBy)
-    {
-        $this->created_by = $createdBy;
-
-        return $this;
-    }
-
-    /**
-     * Get createdBy
-     *
-     * @return integer
-     */
-    public function getCreatedBy()
-    {
-        return $this->created_by;
-    }
-
-    /**
-     * Set createAt
-     *
-     * @param \DateTime $createAt
-     *
-     * @return Blog
-     */
-    public function setCreateAt($createAt)
-    {
-        $this->create_at = $createAt;
-
-        return $this;
-    }
-
-    /**
-     * Get createAt
-     *
-     * @return \DateTime
-     */
-    public function getCreateAt()
-    {
-        return $this->create_at;
-    }
-    /**
-     * @ORM\PrePersist
-     */
-    public function doPrePersist()
-    {
-        // Add your code here
-    }
-
-    /**
-     * @ORM\PreUpdate
-     */
-    public function doPreUpdate()
-    {
-        // Add your code here
-    }
 }
-

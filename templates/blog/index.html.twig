@@ -2,13 +2,48 @@
 
 {% block content %}
     <div class="panel-body">
-    {% for item in list %}
-    
-    {{ item.name }}<br/>{{ item.bt_name }}<br/>{{ item.f_name }}
-    <hr/>
-    
-    {% endfor %}
+	    {% for item in list %}
+	    
+	    <div class="col-sm-12 row-item">
+		    <div class="col-sm-7"><p>{{ item.name }}<br/>{{ item.bt_name }}<br/>{{ item.f_name }}</p></div>
+		    <div class="col-sm-5">
+		    	<div class="col-sm-3 col-xs-6">
+		    	 	<a class="btn btn-warning" href="{{ path('blogupdate', { id: item.id }) }}">
+					    <i class="fa fa-recycle"></i>&nbsp;Update
+				    </a>
+		    	</div>
+			   
+			    <div class="col-sm-3 col-xs-6">
+				    <form action="{{ path('blogdelete') }}" id="del_form" data-id="item.id" method="post">
+				    	<input type="hidden" name="id" value="{{ item.id }}">
+					    <button class="btn btn-warning del"><i class="fa fa-times"></i>&nbsp;Delete</button>
+				    </form>
+			    </div>
+		    </div>
+	    </div>
+	    <div class="clearfix"></div>
+	    {% else %}
+	    	<div class="alert alert-warning">No items found</div>
+	    {% endfor %}
 	
-	<textarea class="form-control ckeditor" name="editor1" rows="6" style="visibility: hidden; display: none;"></textarea>
+	<!-- <textarea class="form-control ckeditor" name="editor1" rows="6" style="visibility: hidden; display: none;"></textarea>  -->
 	</div>
+{% endblock %}
+
+{% block Scripts %}
+
+	<script type="text/javascript">
+
+	$('.del').click(function () {
+		var confirmBox = confirm('Bạn có muốn xóa không?');
+
+		var blog_id = $this.attr('data-id');
+
+		if(confirmBox) {
+			$(this).attr('href',"{{ path('blogdelete') }}");
+			$('#del_form').submit();
+		}
+	});
+	</script>
+	
 {% endblock %}

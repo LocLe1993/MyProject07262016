@@ -49,7 +49,10 @@ use Symfony\Component\HttpKernel\DataCollector\LoggerDataCollector;
 use Symfony\Component\HttpKernel\DataCollector\EventDataCollector;
 use Symfony\Component\HttpKernel\Debug\TraceableEventDispatcher;
 use Symfony\Component\Security\Http\Logout\LogoutUrlGenerator;
+use Symfony\Component\Security\Core\Role\RoleHierarchy;
 use Symfony\Component\Stopwatch\Stopwatch;
+use Symfony\Component\Translation\DataCollector\TranslationDataCollector;
+use Symfony\Component\Translation\DataCollectorTranslator;
 use Symfony\Component\Yaml\Yaml;
 
 /**
@@ -68,15 +71,16 @@ class WebProfilerServiceProvider implements ServiceProviderInterface, Controller
 
         $app['data_collector.templates'] = function ($app) {
             $templates = array(
-                array('config',    '@WebProfiler/Collector/config.html.twig'),
-                array('request',   '@WebProfiler/Collector/request.html.twig'),
-                array('exception', '@WebProfiler/Collector/exception.html.twig'),
-                array('events',    '@WebProfiler/Collector/events.html.twig'),
-                array('logger',    '@WebProfiler/Collector/logger.html.twig'),
-                array('time',      '@WebProfiler/Collector/time.html.twig'),
-                array('router',    '@WebProfiler/Collector/router.html.twig'),
-                array('memory',    '@WebProfiler/Collector/memory.html.twig'),
-                array('form',      '@WebProfiler/Collector/form.html.twig'),
+                array('config',      '@WebProfiler/Collector/config.html.twig'),
+                array('request',     '@WebProfiler/Collector/request.html.twig'),
+                array('exception',   '@WebProfiler/Collector/exception.html.twig'),
+                array('events',      '@WebProfiler/Collector/events.html.twig'),
+                array('logger',      '@WebProfiler/Collector/logger.html.twig'),
+                array('time',        '@WebProfiler/Collector/time.html.twig'),
+                array('router',      '@WebProfiler/Collector/router.html.twig'),
+                array('memory',      '@WebProfiler/Collector/memory.html.twig'),
+                array('form',        '@WebProfiler/Collector/form.html.twig'),
+                array('translation', '@WebProfiler/Collector/translation.html.twig'),
             );
 
             if (class_exists('Symfony\Bridge\Twig\Extension\ProfilerExtension')) {
@@ -172,7 +176,7 @@ class WebProfilerServiceProvider implements ServiceProviderInterface, Controller
         if (isset($app['security.token_storage']) && class_exists('Symfony\Bundle\SecurityBundle\DataCollector\SecurityDataCollector')) {
             $app->extend('data_collectors', function ($collectors, $app) {
                 $collectors['security'] = function ($app) {
-                    $roleHierarchy = !empty($app['security.role_hierarchy']) ? $app['security.role_hierarchy'] : null;
+                    $roleHierarchy = new RoleHierarchy($app['security.role_hierarchy']);
                     $logoutUrlGenerator = new LogoutUrlGenerator($app['request_stack'], $app['url_generator'], $app['security.token_storage']);
 
                     return new SecurityDataCollector($app['security.token_storage'], $roleHierarchy, $logoutUrlGenerator);
@@ -182,7 +186,7 @@ class WebProfilerServiceProvider implements ServiceProviderInterface, Controller
             });
 
             $app->extend('data_collector.templates', function ($templates) {
-                $templates[] = ['security', '@Security/Collector/security.html.twig'];
+                $templates[] = array('security', '@Security/Collector/security.html.twig');
 
                 return $templates;
             });
@@ -201,7 +205,7 @@ class WebProfilerServiceProvider implements ServiceProviderInterface, Controller
                 return dirname(dirname($r->getFileName())).'/Resources/views';
             };
 
-            $app['twig'] = $app->extend('twig', function($twig, $app) {
+            $app['twig'] = $app->extend('twig', function ($twig, $app) {
                 $twig->addFilter('yaml_encode', new \Twig_SimpleFilter('yaml_encode', function (array $var) {
                     return Yaml::dump($var);
                 }));
@@ -211,6 +215,20 @@ class WebProfilerServiceProvider implements ServiceProviderInterface, Controller
                 }));
 
                 return $twig;
+            });
+        }
+
+        if (isset($app['translator']) && class_exists('Symfony\Component\Translation\DataCollector\TranslationDataCollector')) {
+            $app['data_collectors'] = $app->extend('data_collectors', function ($collectors, $app) {
+                $collectors['translation'] = function ($app) {
+                    return new TranslationDataCollector($app['translator']);
+                };
+
+                return $collectors;
+            });
+
+            $app->extend('translator', function ($translator, $app) {
+                return new DataCollectorTranslator($translator);
             });
         }
 

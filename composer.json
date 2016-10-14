@@ -26,7 +26,10 @@
         "doctrine/orm": "^2.5",
         "symfony/yaml": "^3.1",
         "dflydev/doctrine-orm-service-provider": "^2.0",
-        "saxulum/saxulum-doctrine-orm-manager-registry-provider": "^3.1"
+        "saxulum/saxulum-doctrine-orm-manager-registry-provider": "^3.1",
+        "doctrine/dbal" : "~2.2",
+        "symfony/doctrine-bridge" : "^3.1",
+        "symfony/dependency-injection": "^3.1"
     },
     "autoload": {
         "psr-4": { "MyProject\\": "src/" }

@@ -57,3 +57,10 @@ h3 {
   text-transform: uppercase;
   color: #111;
 }
+
+.row-item {
+	border-bottom: 1px #000 solid;height: auto;display: flex; justify-content:center; align-items:center;padding: 10px 0;
+}
+.row-item:nth-of-type(1) {
+	border-top: 1px #000 solid;
+}

@@ -1,6 +1,12 @@
 Changelog
 =========
 
+2.0.3 (2016-08-22)
+------------------
+
+* fixed lazy evaluation of 'monolog.use_error_handler'
+* fixed PHP7 type hint on controllers
+
 2.0.2 (2016-06-14)
 ------------------
 

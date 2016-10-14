@@ -8,7 +8,7 @@
 <meta name="author" content="GeeksLabs">
 <meta name="keyword"
 	content="Blog,Share,Knowledge,Information,Computer,Programming">
-<link rel="shortcut icon" href="img/favicon.png">
+<link rel="shortcut icon" href="{{ asset('favicon.png','img') }}">
 
 <title>Blog - Admin Page</title>
 
@@ -35,7 +35,7 @@
 <!-- owl carousel -->
 <link rel="stylesheet" href="{{ asset('owl.carousel.css','css') }}"
 	type="text/css">
-<link href="css/jquery-jvectormap-1.2.2.css" rel="stylesheet">
+<link href="{{ asset('jquery-jvectormap-1.2.2.css','css') }}" rel="stylesheet">
 <!-- Custom styles -->
 <link rel="stylesheet" href="{{ asset('fullcalendar.css','css') }}">
 <link href="{{ asset('widgets.css','css') }}" rel="stylesheet">
@@ -82,7 +82,7 @@
 			</div>
 
 			<!--logo start-->
-			<a href="index.html" class="logo">BlogShare <span class="lite">Admin</span></a>
+			<a href="/" class="logo">BlogShare <span class="lite">Admin</span></a>
 			<!--logo end-->
 
 			<!-- <div class="nav search-row" id="top_menu">
@@ -105,7 +105,7 @@
 					<!-- user login dropdown start-->
 					<li class="dropdown"><a data-toggle="dropdown"
 						class="dropdown-toggle" href="#"> <span class="profile-ava">
-								<img alt="" src="img/avatar1_small.jpg">
+							<img alt="" src="{{ asset('avatar1_small.jpg','img') }}">
 						</span> <span class="username">Jenifer Smith</span> <b class="caret"></b>
 					</a>
 						<ul class="dropdown-menu">
@@ -135,18 +135,23 @@
 					<li class="active"><a class="" href="{{ path('index') }}">
 							<i class="icon_house_alt"></i> <span>Dashboard</span>
 					</a></li>
-					<li><a class="" href="{{ path('blog') }}">
-							<i class="icon_documents_alt"></i> <span>Blog</span>
-					</a></li>
-					<li class="sub-menu"><a href="javascript:;" class=""> <i
+					<li class="sub-menu"><a href="javascript:void(0)">
+							<i class="icon_documents_alt"></i> <span>Blog</span><span
+							class="menu-arrow arrow_carrot-right"></span>
+					</a>
+					<ul class="sub">
+						<li><a class="" href="{{ path('blog') }}">Blog List</a></li>
+						<li><a class="" href="{{ path('blogadd') }}">Add Blog</a></li>
+					</ul></li>
+					<li class="sub-menu"><a href="javascript:void(0)" class=""> <i
 							class="icon_document_alt"></i> <span>Forms</span> <span
 							class="menu-arrow arrow_carrot-right"></span>
 					</a>
-						<ul class="sub">
-							<li><a class="" href="form_component.html">Form Elements</a></li>
-							<li><a class="" href="form_validation.html">Form
-									Validation</a></li>
-						</ul></li>
+					<ul class="sub">
+						<li><a class="" href="form_component.html">Form Elements</a></li>
+						<li><a class="" href="form_validation.html">Form
+								Validation</a></li>
+					</ul></li>
 
 				</ul>
 				<!-- sidebar menu end-->
@@ -242,5 +247,9 @@
 
 	<script type="text/javascript"
 		src="{{ asset('ckeditor/ckeditor.js','assets') }}"></script>
+		
+	{% block Scripts %}
+	
+	{% endblock %}
 </body>
 </html>
