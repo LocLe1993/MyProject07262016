@@ -2,45 +2,92 @@
 
 {% block content %}
     <div class="panel-body">
-	    {% for item in list %}
-	    
-	    <div class="col-sm-12 row-item">
-		    <div class="col-sm-7"><p>{{ item.name }}<br/>{{ item.bt_name }}<br/>{{ item.f_name }}</p></div>
-		    <div class="col-sm-5">
-		    	<div class="col-sm-3 col-xs-6">
-		    	 	<a class="btn btn-warning" href="{{ path('blogupdate', { id: item.id }) }}">
-					    <i class="fa fa-recycle"></i>&nbsp;Update
-				    </a>
-		    	</div>
-			   
-			    <div class="col-sm-3 col-xs-6">
-				    <form action="{{ path('blogdelete') }}" id="del_form" data-id="item.id" method="post">
-				    	<input type="hidden" name="id" value="{{ item.id }}">
-					    <button class="btn btn-warning del"><i class="fa fa-times"></i>&nbsp;Delete</button>
-				    </form>
-			    </div>
-		    </div>
+		<div class="col-sm-12">
+	    	<div class="pull-right" style="padding: 15px 0;">
+	    		<!-- Button trigger modal -->
+	    		<button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">
+			  		<i class="fa fa-plus"></i>&nbsp;Add new blog
+				</button>
+	    	</div>
 	    </div>
 	    <div class="clearfix"></div>
-	    {% else %}
-	    	<div class="alert alert-warning">No items found</div>
-	    {% endfor %}
+	    <div class="table">
+		    {% for item in list %}
+		    <div class="col-sm-12 row-item">
+			    <div class="col-sm-7"><p>{{ item.name }}<br/>{{ item.bt_name }}<br/>{{ item.f_name }}</p></div>
+			    <div class="col-sm-5 row-center">
+			    	<div class="col-sm-6 col-xs-6">
+			    	 	<a class="btn btn-warning" href="{{ path('blogupdate', { id: item.id }) }}">
+						    <i class="fa fa-recycle"></i>&nbsp;Update
+					    </a>
+			    	</div>
+				    <div class="col-sm-6 col-xs-6">
+					    <form action="{{ path('blogdelete') }}" id="del_form" method="post">
+					    	<input type="hidden" name="id" value="{{ item.id }}">
+						    <button class="btn btn-warning del"><i class="fa fa-times"></i>&nbsp;Delete</button>
+					    </form>
+				    </div>
+			    </div>
+		    </div>
+		    <div class="clearfix"></div>
+		    {% else %}
+		    	<div class="alert alert-warning">No items found</div>
+		    {% endfor %}
+	    </div>
 	
 	<!-- <textarea class="form-control ckeditor" name="editor1" rows="6" style="visibility: hidden; display: none;"></textarea>  -->
 	</div>
+	
+	<!-- Modal -->
+	{{ form_start(form,
+		{ 
+            method: 'post',
+            action: path('blog'),
+        }
+	) }}
+	<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+	  <div class="modal-dialog" role="document">
+	    <div class="modal-content">
+	      <div class="modal-header">
+	        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+	        <h4 class="modal-title" id="myModalLabel">Modal title</h4>
+	      </div>
+	      <div class="modal-body">
+	      	<input type="hidden" name="action" value="add">
+			{{ form_label(form.name) }} {{ form_widget(form.name, {'attr': {'class': 'form-control'}}) }} {{ form_errors(form.name) }}
+			{{ form_label(form.blog_type_id) }} {{ form_widget(form.blog_type_id, {'attr': {'class': 'form-control'}}) }} {{ form_errors(form.blog_type_id) }}
+			{{ form_label(form.field_id) }} {{ form_widget(form.field_id, {'attr': {'class': 'form-control'}}) }} {{ form_errors(form.field_id) }}
+			{{ form_widget(form.del_flg) }}
+			{{ form_widget(form.updated_by) }}
+			{{ form_widget(form.created_by) }}
+			<div class="clearfix" style="height:20px;"></div>
+	      </div>
+	      <div class="modal-footer">
+	        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+	       	<button class="btn btn-primary" type="submit"><i class="fa fa-plus"></i>&nbsp;Save changes</button>
+	      </div>
+	      
+	    </div>
+	  </div>
+	</div>
+	<script type="text/javascript">
+		$(document).ready(function () {
+			{% if invalid == true %}
+				$modal = $('#myModal').modal();
+			{% endif %}
+		});
+	</script>
+	{{ form_end(form) }}
 {% endblock %}
 
 {% block Scripts %}
 
 	<script type="text/javascript">
-
-	$('.del').click(function () {
+	$('.del').click(function (e) {
+		e.preventDefault();
 		var confirmBox = confirm('Bạn có muốn xóa không?');
 
-		var blog_id = $this.attr('data-id');
-
 		if(confirmBox) {
-			$(this).attr('href',"{{ path('blogdelete') }}");
 			$('#del_form').submit();
 		}
 	});

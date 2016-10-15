@@ -11,15 +11,38 @@ use Symfony\Component\Validator\Constraints as Assert;
 use MyProject\Form\BlogTypes;
 
 class BlogController {
-	public function index(\Silex\Application $app) {
-		return $this->initListPage($app);
-	}
-	private function initListPage(\Silex\Application $app) {
+	public function index(\Silex\Application $app, Request $request) {
+		$blog = new Blog();
+		$form = $app['form.factory']->createBuilder(BlogTypes::class, $blog)
+		->getForm();
+		$action = $request->get('action');
+		$invalid = false;
+		switch ($action) {
+			case "add":
+				$form->handleRequest($request);
+				if ($form->isValid()) {
+					// do something with the data
+					// redirect somewhere
+					$app ['Myproject.Blog.Repository']->save ($blog);
+					
+				} else {
+					$invalid = true;
+				}
+				return $app->redirect($app["url_generator"]->generate("blog"));
+			case "update":
+				break;
+			default:
+				break;
+		}
+		
+		
 		$list = $app ['Myproject.Blog.Repository']->getListAll ();
 		return $app ['twig']->render ( 'blog/index.html.twig', array (
 				'list' => $list,
 				'PageName' => 'BLOG LIST',
-				'CurrentPage' => 'Blog List'
+				'CurrentPage' => 'Blog List',
+				'form' => $form->createView(),
+				'invalid' => $invalid
 		) );
 	}
 // 	public function addView(\Silex\Application $app) {

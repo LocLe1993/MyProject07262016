@@ -5,14 +5,11 @@
 	background-color: #688a7e; 
     color: white;
 }
-
-
 body, html {
   height: 100%;
   margin: 0;
   color: #777;
 }
-
 .bgimg-1, .bgimg-2, .bgimg-3 {
   position: relative;
   background-attachment: fixed;
@@ -25,17 +22,14 @@ body, html {
   background-image: url("../img/paralax-img/parallax-1.jpg");
   min-height: 100%;
 }
-
 .bgimg-2 {
   background-image: url("../img/paralax-img/parallax-2.jpg");
   min-height: 400px;
 }
-
 .bgimg-3 {
   background-image: url("../img/paralax-img/parallax-3.jpg");
   min-height: 400px;
 }
-
 .caption {
   position: absolute;
   left: 0;
@@ -44,23 +38,29 @@ body, html {
   text-align: center;
   color: #000;
 }
-
 .caption span.border {
   background-color: #111;
   color: #fff;
   padding: 18px;
   font-size: 25px;
 }
-
 h3 {
   letter-spacing: 5px;
   text-transform: uppercase;
   color: #111;
 }
-
 .row-item {
-	border-bottom: 1px #000 solid;height: auto;display: flex; justify-content:center; align-items:center;padding: 10px 0;
+	border-bottom: 1px #000 solid;padding: 10px 0;
+	display: flex; justify-content:center; align-items:center;height: 100%;
 }
 .row-item:nth-of-type(1) {
 	border-top: 1px #000 solid;
+}
+@media screen and (max-width: 768px) {
+	.row-item {
+		display: block;
+	}
+	.row-center {
+		display: flex; justify-content:center; align-items:center;height: 100%;
+	}
 }
